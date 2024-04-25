@@ -47,7 +47,34 @@ include("../../app/controllers/roles/listado_roles.php");
                                 <div class="btn-group" role="group">
                                     <a href="show.php?id=<?=$id_rol;?>"><button type="button" class="btn btn-primary"><i class="bi bi-eye"></i></button></a>
                                     <a href="edit.php?id=<?=$id_rol;?>"><button type="button" class="btn btn-success"><i class="bi bi-pencil"></i></button></a>
-                                    <button type="button" class="btn btn-danger"><i class="bi bi-trash3"></i></button>
+                                    <form action="<?=APP_URL."/app/controllers/roles/delete.php";?>" onclick="borrar(event)" id="borrarRol<?=$id_rol;?>" method="POST">
+                                      <input type="text" value="<?=$id_rol;?>" hidden name="id_rol">
+                                      <button type="submit" class="btn btn-danger"><i class="bi bi-trash3"></i></button>
+                                      <script>
+                                        function borrar(event){
+                                            event.preventDefault();
+                                            Swal.fire({
+                                            title: "¿Quieres elimiarlo?",
+                                            text: "¡Si lo eliminas, no podras revertir los cambios!",
+                                            icon: "warning",
+                                            showCancelButton: true,
+                                            confirmButtonColor: "#3085d6",
+                                            cancelButtonColor: "#d33",
+                                            confirmButtonText: "¡Sí, eliminar!"
+                                            }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                var form = $('#borrarRol<?=$id_rol;?>');
+                                                form.submit();
+                                                Swal.fire({
+                                                title: "¡Eliminado!",
+                                                text: "Su registro fue eliminado con éxito.",
+                                                icon: "success"
+                                                });
+                                            }
+                                            });
+                                        }
+                                        </script>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
