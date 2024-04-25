@@ -17,8 +17,6 @@ include("../../admin/layout/parte1.php");
             <div class="card-header">
             <h3 class="card-title">Por favor rellene los campos solicitados</h3>
             <div class="card-tools">
-            <a href="create.php" type="button" class="btn btn-success">
-            <i class="bi bi-plus-circle"></i></a>
             </div>
 
             </div>
@@ -38,7 +36,7 @@ include("../../admin/layout/parte1.php");
                     <div class="col-md-12">
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Crear</button>
-                            <a href="" class="btn btn-secondary">Cancelar</a>
+                            <a href="<?=APP_URL."/admin/roles/"?>" class="btn btn-secondary">Cancelar</a>
                         </div>
                     </div>
                 </div>

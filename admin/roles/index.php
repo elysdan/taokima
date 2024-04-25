@@ -45,8 +45,8 @@ include("../../app/controllers/roles/listado_roles.php");
                             <td><?=$nombre_rol?></td>
                             <td style="text-align: center;">
                                 <div class="btn-group" role="group">
-                                    <button type="button" class="btn btn-primary"><i class="bi bi-eye"></i></button>
-                                    <button type="button" class="btn btn-success"><i class="bi bi-pencil"></i></button>
+                                    <a href="show.php?id=<?=$id_rol;?>"><button type="button" class="btn btn-primary"><i class="bi bi-eye"></i></button></a>
+                                    <a href="edit.php?id=<?=$id_rol;?>"><button type="button" class="btn btn-success"><i class="bi bi-pencil"></i></button></a>
                                     <button type="button" class="btn btn-danger"><i class="bi bi-trash3"></i></button>
                                 </div>
                             </td>
