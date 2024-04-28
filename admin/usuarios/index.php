@@ -30,6 +30,7 @@ include("../../app/controllers/usuarios/listado_usuarios.php");
                         <td>Nro</td>
                         <td>Nombre</td>
                         <td>Nivel</td>
+                        <td>Estado</td>
                         <td>Acciones</td>
                     </tr>
                 </thead>
@@ -39,18 +40,17 @@ include("../../app/controllers/usuarios/listado_usuarios.php");
                         foreach($usuarios as $usuario){
                         $id_usuario = $usuario['id_usuario'];
                         $contador+=1;
-                        $nombre_usuario = $usuario['nombres'];
-                        $nivel = $usuario['nivel'];
                         ?>
                         <tr>
                             <td style="text-align: center;"><?=$contador?></td>
-                            <td><?=$nombre_usuario?></td>
-                            <td><?=$nivel?></td>
+                            <td><?=$usuario['nombres'];?></td>
+                            <td><?=$usuario['nivel'];?></td>
+                            <td><?=$usuario['estado'];?></td>
                             <td style="text-align: center;">
                                 <div class="btn-group" role="group">
                                     <a href="show.php?id=<?=$id_usuario;?>"><button type="button" class="btn btn-primary"><i class="bi bi-eye"></i></button></a>
                                     <a href="edit.php?id=<?=$id_usuario;?>"><button type="button" class="btn btn-success"><i class="bi bi-pencil"></i></button></a>
-                                    <form action="<?=APP_URL."/app/controllers/roles/delete.php";?>" onclick="borrar(event)" id="borrarRol<?=$id_usuario;?>" method="POST">
+                                    <form action="<?=APP_URL."/app/controllers/roles/delete.php";?>" onclick="borrar(event)" id="borrarUsuario<?=$id_usuario;?>" method="POST">
                                       <input type="text" value="<?=$id_usuario;?>" hidden name="id_usuario">
                                       <button type="submit" class="btn btn-danger"><i class="bi bi-trash3"></i></button>
                                       <script>
@@ -66,7 +66,7 @@ include("../../app/controllers/usuarios/listado_usuarios.php");
                                             confirmButtonText: "¡Sí, eliminar!"
                                             }).then((result) => {
                                             if (result.isConfirmed) {
-                                                var form = $('#borrarRol<?=$id_usuario;?>');
+                                                var form = $('#borrarUsuario<?=$id_usuario;?>');
                                                 form.submit();
                                                 Swal.fire({
                                                 title: "¡Eliminado!",
