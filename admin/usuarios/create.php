@@ -2,6 +2,7 @@
 //include("tests_errors/error_reporting.php"); 
 include("../../app/config.php");
 include("../../app/controllers/roles/listado_roles.php");
+include("../../app/controllers/rangos/listado_rangos.php");
 include("../../admin/layout/parte1.php");
 ?>
 
@@ -70,7 +71,17 @@ include("../../admin/layout/parte1.php");
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <input type="text" name="rango" id="rango" class="form-control" placeholder="Rango del usuario">
+                                            <!--Select rango -->
+                                            <select name="" id="" class="form-control">
+                                                <option value="0" disabled>RANGOS</option>
+                                                <?php
+                                                foreach ($rangos as $rango) {
+                                                ?>
+                                                    <option value="<?= $rango['id_rango']; ?>"><?= $rango['descripcion']; ?></option>
+                                                <?php
+                                                }
+                                                ?>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

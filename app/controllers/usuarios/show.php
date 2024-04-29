@@ -8,6 +8,8 @@ $usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
 
 foreach($usuarios as $usuario){
     $nombre_usuario = $usuario['nombres'];
+    $rango_id = $usuario['rango_id'];
+    $rol_id = $usuario['rol_id'];
     $fecha_creado = $usuario['created_at'];
     $fecha_actualizado = $usuario['updated_at'];
 }

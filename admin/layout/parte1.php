@@ -123,7 +123,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          
+           
+          <!-- RANGOS -->
+           <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <img src="<?=APP_URL."/public/images/cinturon.png"?>" alt="">
+              <!-- <a href="https://www.flaticon.es/iconos-gratis/cinturon" title="cinturón iconos">Cinturón iconos creados por Good Ware - Flaticon</a>-->
+              <p>
+                Rangos
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?=APP_URL."/admin/rangos"?>" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de Rangos</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
           <!-- ROLES -->
           <li class="nav-item">
             <a href="#" class="nav-link active">

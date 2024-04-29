@@ -15,6 +15,7 @@ INSERT INTO tbl_roles (descripcion, created_at, estado) VALUES ('REPRESENTANTE',
 CREATE TABLE tbl_rangos (
     id_rango            INT (11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     descripcion         VARCHAR (100) NOT NULL UNIQUE KEY, /*Cinturon blanco, verde, negro, etc*/
+    significado         TEXT NULL,
     created_at          DATETIME NULL,
     updated_at          DATETIME NULL,
     estado              VARCHAR (11)

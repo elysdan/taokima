@@ -2,20 +2,20 @@
 //include("tests_errors/error_reporting.php"); 
 include("../../app/config.php");
 include("../../admin/layout/parte1.php");
-include("../../app/controllers/usuarios/listado_usuarios.php");
+include("../../app/controllers/rangos/listado_rangos.php");
 ?>
 
   <div class="content-wrapper">
     <div class="content">
       <div class="container-fluid">
         <div class="row">
-          <h1>Lista de usuarios</h1>
+          <h1>Lista de rangos</h1>
         </div>
         <div class="row">
         <div class="col-md-12">
             <div class="card shadow-sm">
             <div class="card-header">
-            <h3 class="card-title">Usuarios Registrados</h3>
+            <h3 class="card-title">Rangos Registrados</h3>
             <div class="card-tools">
             <a href="create.php" type="button" class="btn btn-success">
             <i class="bi bi-plus-circle"></i></a>
@@ -24,34 +24,31 @@ include("../../app/controllers/usuarios/listado_usuarios.php");
             </div>
 
             <div class="card-body" style="display: block;">
-            <table id="example1" class="table table-hover table-bordered">
+            <table class="table table-hover table-bordered">
                 <thead class="table-dark">
                     <tr style="text-align: center;">
                         <td>Nro</td>
-                        <td>Nombre</td>
-                        <td>Nivel</td>
-                        <td>Estado</td>
+                        <td>Nombre Rango</td>
                         <td>Acciones</td>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     $contador = 0;
-                        foreach($usuarios as $usuario){
-                        $id_usuario = $usuario['id_usuario'];
+                        foreach($rangos as $rango){
+                        $id_rango = $rango['id_rango'];
                         $contador+=1;
+                        $nombre_rango = $rango['descripcion'];
                         ?>
                         <tr>
                             <td style="text-align: center;"><?=$contador?></td>
-                            <td><?=$usuario['nombres'];?></td>
-                            <td><?=$usuario['rango_id'];?></td>
-                            <td><?=$usuario['estado'];?></td>
+                            <td><?=$nombre_rango?></td>
                             <td style="text-align: center;">
                                 <div class="btn-group" role="group">
-                                    <a href="show.php?id=<?=$id_usuario;?>"><button type="button" class="btn btn-primary"><i class="bi bi-eye"></i></button></a>
-                                    <a href="edit.php?id=<?=$id_usuario;?>"><button type="button" class="btn btn-success"><i class="bi bi-pencil"></i></button></a>
-                                    <form action="<?=APP_URL."/app/controllers/roles/delete.php";?>" onclick="borrar(event)" id="borrarUsuario<?=$id_usuario;?>" method="POST">
-                                      <input type="text" value="<?=$id_usuario;?>" hidden name="id_usuario">
+                                    <a href="show.php?id=<?=$id_rango;?>"><button type="button" class="btn btn-primary"><i class="bi bi-eye"></i></button></a>
+                                    <a href="edit.php?id=<?=$id_rango;?>"><button type="button" class="btn btn-success"><i class="bi bi-pencil"></i></button></a>
+                                    <form action="<?=APP_URL."/app/controllers/rangos/delete.php";?>" onclick="borrar(event)" id="borrarRol<?=$id_rango;?>" method="POST">
+                                      <input type="text" value="<?=$id_rango;?>" hidden name="id_rango">
                                       <button type="submit" class="btn btn-danger"><i class="bi bi-trash3"></i></button>
                                       <script>
                                         function borrar(event){
@@ -66,7 +63,7 @@ include("../../app/controllers/usuarios/listado_usuarios.php");
                                             confirmButtonText: "¡Sí, eliminar!"
                                             }).then((result) => {
                                             if (result.isConfirmed) {
-                                                var form = $('#borrarUsuario<?=$id_usuario;?>');
+                                                var form = $('#borrarRol<?=$id_rango;?>');
                                                 form.submit();
                                                 Swal.fire({
                                                 title: "¡Eliminado!",
@@ -94,23 +91,7 @@ include("../../app/controllers/usuarios/listado_usuarios.php");
       </div>
     </div>
   </div>
-  <script>
-        $(function () {
-            $("#example1").DataTable({
-            "responsive": true, "lengthChange": false, "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-            $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-            });
-        });
-    </script>
+
 <?php
 include("../../admin/layout/parte2.php");
 include("../../layout/mensajes.php");
