@@ -3,6 +3,7 @@
 include("../../app/config.php");
 include("../../admin/layout/parte1.php");
 include("../../app/controllers/usuarios/listado_usuarios.php");
+include("../../app/controllers/rangos/listado_rangos.php");
 ?>
 
   <div class="content-wrapper">
@@ -29,7 +30,7 @@ include("../../app/controllers/usuarios/listado_usuarios.php");
                     <tr style="text-align: center;">
                         <td>Nro</td>
                         <td>Nombre</td>
-                        <td>Nivel</td>
+                        <td>Rango</td>
                         <td>Estado</td>
                         <td>Acciones</td>
                     </tr>
@@ -44,7 +45,7 @@ include("../../app/controllers/usuarios/listado_usuarios.php");
                         <tr>
                             <td style="text-align: center;"><?=$contador?></td>
                             <td><?=$usuario['nombres'];?></td>
-                            <td><?=$usuario['rango_id'];?></td>
+                            <td><?= $rango['id_rango']; ?><?= $rango['descripcion']; ?></td>
                             <td><?=$usuario['estado'];?></td>
                             <td style="text-align: center;">
                                 <div class="btn-group" role="group">

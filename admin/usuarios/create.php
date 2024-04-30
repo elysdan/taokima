@@ -27,7 +27,7 @@ include("../../admin/layout/parte1.php");
                                     <div class="col-md-2">
                                         <div class="form-group">
                                             <!--Select rol -->
-                                            <select name="" id="" class="form-control">
+                                            <select name="rol_id" id="" class="form-control">
                                                 <option value="0" disabled>PRIVILEGIOS</option>
                                                 <?php
                                                 foreach ($roles as $rol) {
@@ -72,7 +72,7 @@ include("../../admin/layout/parte1.php");
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <!--Select rango -->
-                                            <select name="" id="" class="form-control">
+                                            <select name="rango_id" id="" class="form-control">
                                                 <option value="0" disabled>RANGOS</option>
                                                 <?php
                                                 foreach ($rangos as $rango) {
